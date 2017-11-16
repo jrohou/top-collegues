@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   }
 ngOnInit() {
 this.hit = true;
-this.collegueService.listerCollegues().then((listeCollegues) => this.collegues = listeCollegues)
+this.collegueService.listerCollegues().then((data) => this.collegues = data);
 }
 add(pseudo:HTMLInputElement, imageurl:HTMLInputElement) {
   this.collegueService.sauvegarder(new Collegue(pseudo.value, imageurl.value, 100));
