@@ -1,0 +1,12 @@
+
+<ngb-carousel>
+  <div *ngFor="let collegue of collegues">
+    <ng-template ngbSlide>
+      <a routerLink="/detail/{{collegue.pseudo}}"><img src={{collegue.imageUrl}} class="img-fluid" alt="Photo du collegue"/></a>
+      <div class="carousel-caption">
+        <h2>{{collegue.score}}</h2>
+        <app-un-collegue [collegue]="collegue"></app-un-collegue>
+      </div>
+    </ng-template>
+  </div>
+</ngb-carousel>

@@ -1,0 +1,33 @@
+
+<table class="table">
+  <thead>
+    <th scope="col">
+
+    </th>
+    <th scope="col">
+      Pseudo
+    </th>
+    <th scope="col">
+      Score
+    </th>
+    <th scope="col">
+      Actions
+    </th>
+  </thead>
+    <tbody>
+      <tr *ngFor="let collegue of collegues">
+        <th scope="row">
+          <a routerLink="/detail/{{collegue.pseudo}}"><img class="img-fluid" src={{collegue.imageUrl}} alt="Photo du collegue" height="200px" style="border-radius:100"/></a>
+        </th>
+        <td>
+          {{collegue.pseudo}}
+        </td>
+        <td>
+          {{collegue.score}}
+        </td>
+        <td>
+          <app-un-collegue [collegue]="collegue"></app-un-collegue>
+        </td>
+      </tr>
+    </tbody>
+</table>
