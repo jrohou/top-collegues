@@ -1,4 +1,6 @@
-
+<h3>Filtrage</h3>
+<input type="number"  (keyup)="onkeyup($event)" class="form-control form-control-lg" id="element" placeholder="Filtrage par nombre d'élement">
+<input type="number"  (keyup)="onkeyup($event)" class="form-control form-control-lg" id="element" placeholder="Filtrage par Pseudo">
 <table class="table">
   <thead>
     <th scope="col">
@@ -15,15 +17,15 @@
     </th>
   </thead>
     <tbody>
-      <tr *ngFor="let collegue of collegues">
+      <tr *ngFor="let collegue of collegues | slice:0:limite">
         <th scope="row">
-          <a routerLink="/detail/{{collegue.pseudo}}"><img class="img-fluid" src={{collegue.imageUrl}} alt="Photo du collegue" height="200px" style="border-radius:100"/></a>
+          <a routerLink="/detail/{{collegue.pseudo}}"><img class="rounded mx-auto d-block" src={{collegue.imageUrl}} alt="Photo du collegue" height="200px" style="border-radius:100"/></a>
         </th>
         <td>
-          {{collegue.pseudo}}
+          {{collegue.pseudo | uppercase}}
         </td>
         <td>
-          {{collegue.score}}
+        <h3 [innerHTML]="collegue.score|score"></h3>
         </td>
         <td>
           <app-un-collegue [collegue]="collegue"></app-un-collegue>
